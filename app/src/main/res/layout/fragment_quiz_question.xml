@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".quiz_activity.QuizQuestionFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/quizQuestionConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ProgressBar
+            android:id="@+id/QuestionProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="10"
+            android:layout_width="379dp"
+            android:layout_height="31dp"
+            app:layout_constraintBottom_toTopOf="@+id/TimeProgressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/TimeProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circleprogressbar"
+            android:layout_width="111dp"
+            android:layout_height="90dp"
+            android:max="30"
+            app:layout_constraintBottom_toTopOf="@+id/QuestionNumTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuestionProgressBar" />
+
+        <TextView
+            android:id="@+id/QuestionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/QuestionImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuestionNumTextView" />
+
+        <ImageView
+            android:id="@+id/QuestionImageView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_festival"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/OptionAButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuestionTextView" />
+
+        <Button
+            android:id="@+id/OptionAButton"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/option1_button"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/OptionBButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuestionImageView" />
+
+        <Button
+            android:id="@+id/OptionBButton"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/option2_button"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/OptionCButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OptionAButton" />
+
+        <Button
+            android:id="@+id/OptionCButton"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/option3_button"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/OptionDButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OptionBButton"
+            tools:ignore="RedundantDescriptionCheck" />
+
+        <Button
+            android:id="@+id/OptionDButton"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/option4_button"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OptionCButton"
+            tools:ignore="RedundantDescriptionCheck" />
+
+        <TextView
+            android:id="@+id/TimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_30"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/TimeProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/TimeProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/TimeProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/TimeProgressBar" />
+
+        <TextView
+            android:id="@+id/QuestionNumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question_1"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/QuestionTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TimeProgressBar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

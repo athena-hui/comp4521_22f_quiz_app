@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.comp4521_quiz_app.quiz_activity.QuizDashboardFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/RecentQuizTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recent_quiz"
+            android:textColor="#9C27B0"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/RecentRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecentRecyclerView"
+            android:layout_width="374dp"
+            android:layout_height="196dp"
+            app:layout_constraintBottom_toTopOf="@+id/QuizzesTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RecentQuizTextView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/QuizzesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes"
+            android:textColor="#9C27B0"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/QuizzesRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RecentRecyclerView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/QuizzesRecyclerView"
+            android:layout_width="374dp"
+            android:layout_height="258dp"
+            app:layout_constraintBottom_toTopOf="@+id/AddQuestionButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuizzesTextView" />
+
+        <Button
+            android:id="@+id/AddQuestionButton"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_question_button_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuizzesRecyclerView" />
+
+        <TextView
+            android:id="@+id/NoRecentTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_recent_quiz_type_found"
+            android:textColor="#A4A4A4"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/RecentRecyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/RecentRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/RecentRecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/RecentRecyclerView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

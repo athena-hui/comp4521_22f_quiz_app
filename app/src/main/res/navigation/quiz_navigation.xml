@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quiz_navigation"
+    app:startDestination="@id/quizDashboardFragment">
+
+    <fragment
+        android:id="@+id/startQuizFragment"
+        android:name="com.example.comp4521_quiz_app.quiz_activity.StartQuizFragment"
+        android:label="fragment_start_quiz"
+        tools:layout="@layout/fragment_start_quiz" >
+        <action
+            android:id="@+id/action_startQuizFragment_to_quizQuestionFragment"
+            app:destination="@id/quizQuestionFragment" />
+        <argument
+            android:name="quizType"
+            app:argType="string"
+            android:defaultValue="GeographyFail" />
+        <argument
+            android:name="quizTypeInt"
+            app:argType="integer"
+            android:defaultValue="-2" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizResultFragment"
+        android:name="com.example.comp4521_quiz_app.quiz_activity.QuizResultFragment"
+        android:label="fragment_quiz_result"
+        tools:layout="@layout/fragment_quiz_result" >
+        <action
+            android:id="@+id/action_quizResultFragment_to_startQuizFragment"
+            app:destination="@id/startQuizFragment"
+            app:popUpTo="@id/quizDashboardFragment" />
+        <action
+            android:id="@+id/action_quizResultFragment_to_quizDashboardFragment"
+            app:destination="@id/quizDashboardFragment"
+            app:popUpTo="@id/quizDashboardFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="totalScore"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="correctAnswer"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="spentSecond"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="quizType"
+            app:argType="integer"
+            android:defaultValue="-2" />
+        <argument
+            android:name="quizTypeString"
+            app:argType="string"
+            android:defaultValue="Failed" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizQuestionFragment"
+        android:name="com.example.comp4521_quiz_app.quiz_activity.QuizQuestionFragment"
+        android:label="fragment_quiz_question"
+        tools:layout="@layout/fragment_quiz_question" >
+        <action
+            android:id="@+id/action_quizQuestionFragment_to_quizResultFragment"
+            app:destination="@id/quizResultFragment"
+            app:popUpTo="@id/quizDashboardFragment" />
+        <argument
+            android:name="quizType"
+            app:argType="integer"
+            android:defaultValue="-2" />
+        <argument
+            android:name="quizTypeStr"
+            app:argType="string"
+            android:defaultValue="Failed" />
+        <action
+            android:id="@+id/action_quizQuestionFragment_to_quizDashboardFragment"
+            app:destination="@id/quizDashboardFragment"
+            app:popUpTo="@id/quizDashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizDashboardFragment"
+        android:name="com.example.comp4521_quiz_app.quiz_activity.QuizDashboardFragment"
+        android:label="QuizDashboardFragment"
+        tools:layout="@layout/fragment_quiz_dashboard">
+        <action
+            android:id="@+id/action_quizDashboardFragment_to_addQuestionFragment"
+            app:destination="@id/addQuestionFragment" />
+        <action
+            android:id="@+id/action_quizDashboardFragment_to_startQuizFragment"
+            app:destination="@id/startQuizFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addQuestionFragment"
+        android:name="com.example.comp4521_quiz_app.quiz_activity.AddQuestionFragment"
+        android:label="AddQuestionFragment"
+        tools:layout="@layout/fragment_add_question">
+        <action
+            android:id="@+id/action_addQuestionFragment_to_quizDashboardFragment"
+            app:destination="@id/quizDashboardFragment"
+            app:popUpTo="@id/quizDashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

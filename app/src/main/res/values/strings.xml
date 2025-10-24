@@ -1,0 +1,109 @@
+<resources>
+    <string id="hi" name="app_name">comp4521_quiz_app</string>
+    <string name="application_name">Comp4521 Quiz App</string>
+    <string name="account">Account</string>
+    <string name="quiz">Quiz</string>
+    <string name="setting">Setting</string>
+    <string name="ranking">Ranking</string>
+    <string name="add_question">Add Question</string>
+    <string name="submit">Submit</string>
+    <string name="quiztypeimage">QuizTypeImage</string>
+    <string name="textview">TextView</string>
+    <string-array name="quiz_type">
+        <item>Geography</item>
+        <item>Transportation</item>
+        <item>Pop culture</item>
+        <item>History</item>
+        <item>Food</item>
+        <item>Festival</item>
+    </string-array>
+    <string-array name="correct_option">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+        <item>Option 4</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="the_quiz_category_you_chose_is">The quiz category you chose is</string>
+    <string name="start">Start</string>
+    <string name="rules_there_will_have_10_questions_in_this_quiz_and_each_question_has_30_seconds_time_limit_nscore_will_be_increased_if_you_answer_earlier_npress_next_to_sumbit_answers_and_skip_to_jump_to_next_question">1. There will have 10 questions in this quiz, and each question has 30 seconds time limit.\n\n2. Score will be increased if you answer correctly, bonus score will be given if you answer earlier.\n\n3. Press the correct answer to go to next page.\n\n4. Questions with photo are only available when there is internet connection.</string>
+    <string name="rules">Rules:</string>
+    <string name="add_new_question">Add new question</string>
+    <string name="question">Question</string>
+    <string name="option1">Option1</string>
+    <string name="option3">Option3</string>
+    <string name="correct_option">Correct Option</string>
+    <string name="option4">Option4</string>
+    <string name="option2">Option2</string>
+    <string name="correct_option_select">Correct Option Select</string>
+    <string name="category">Category</string>
+    <string name="question_category">Question Category</string>
+    <string name="back">Back</string>
+    <string name="add_photo">Add photo</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="recent_quiz">Recent Quiz</string>
+    <string name="quizzes">Quizzes</string>
+    <string name="add_question_button_text">+ Add Question</string>
+    <string name="no_recent_quiz_type_found">No recent quiz type found!</string>
+    <string name="_100">100</string>
+    <string name="correct_answer">Correct answer</string>
+    <string name="time_spent">Time spent</string>
+    <string name="try_again">Try Again</string>
+    <string name="score">Score</string>
+    <string name="question_1">Question 1</string>
+    <string name="_30">30</string>
+    <string name="option3_button">option3 button</string>
+    <string name="option4_button">option4 button</string>
+    <string name="option2_button">option2 button</string>
+    <string name="option1_button">option1 button</string>
+
+    <string name="General">General</string>
+    <string name="firstSeen">firstSeen</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="welcome_to">Welcome To</string>
+    <string name="comp4521_quiz_app">Comp4521 Quiz App !</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="name">Name</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="user_id">User Id</string>
+    <string name="email">Email</string>
+    <string name="registration">Registration</string>
+    <string name="restore_account">Restore account</string>
+    <string name="restore">Restore</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="password_recovery">Password Recovery</string>
+    <string name="account_information">Account Information</string>
+    <string name="change_password">Change Password</string>
+    <string name="edit_information">Edit Info</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="confirm">Confirm</string>
+    <string name="new_email">New email</string>
+    <string name="new_user_name">New user name</string>
+    <string name="edit_account_information">Edit Account Information</string>
+    <string name="old_password">Old password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="confirm_change">confirm change</string>
+    <string name="edit_profile_picture">edit profile picture</string>
+
+    <string name="internet_msg"><i>Please make sure your internet is connected\nto get the most updated ranking</i></string>
+    <string name="empty_rank_msg"><i>No record found!\n\nGo and finish the quiz in this category!!</i></string>
+    <string name="back_home">Back Home</string>
+    <string name="background_music">Background Music</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="about">About</string>
+    <string name="about_arrow">></string>
+    <string name="about_version">VERSION 1.0.0</string>
+    <string name="about_description">We hope you can understand more about Hong Kong by playing our app.\nENJOY :)</string>
+    <string name="setting_sharedPreferences_name">setting</string>
+    <string name="BGM_sharedPreferences_name">BGM</string>
+    <string name="darkMode_sharedPreferences_name">darkMode</string>
+</resources>

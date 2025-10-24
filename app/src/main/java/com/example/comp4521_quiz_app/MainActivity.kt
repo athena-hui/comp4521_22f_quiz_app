@@ -1,0 +1,148 @@
+package com.example.comp4521_quiz_app
+
+import android.app.ActivityManager
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+//import com.example.comp4521_quiz_app.quiz_activity.AddQuestionHelper
+import android.view.MenuItem
+import androidx.lifecycle.*
+import com.example.comp4521_quiz_app.databinding.ActivityMainBinding
+import com.example.comp4521_quiz_app.main_activity.viewModel.MainActivityViewModel
+import com.example.comp4521_quiz_app.setting_activity.SettingFragment
+
+class MainActivity : AppCompatActivity(), LifecycleObserver {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var settingSharedPref: SharedPreferences
+    private var bgmOriSetting: Boolean = false
+    private var darkModeOriSetting: Boolean = false
+    private lateinit var viewModel: MainActivityViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        //Import question from csv to firebase(Initialize only)
+        //AddQuestionHelper.addQuestion(view.context,"questionSet.csv")
+
+        //start the background music according to the local setting
+        settingSharedPref = this.getSharedPreferences(getString(R.string.setting_sharedPreferences_name), MODE_PRIVATE) ?: return
+        bgmOriSetting = settingSharedPref.getBoolean(getString(R.string.BGM_sharedPreferences_name), true)
+        darkModeOriSetting = settingSharedPref.getBoolean(getString(R.string.darkMode_sharedPreferences_name), false)
+
+        if (bgmOriSetting) {
+            val bgmEditor = settingSharedPref.edit()
+            bgmEditor.putBoolean(getString(R.string.BGM_sharedPreferences_name), true)
+            bgmEditor.apply()
+            startService(Intent(this, BackgroundMusicService::class.java))
+        }
+
+        if(!darkModeOriSetting){
+            val darkModeEditor = settingSharedPref.edit()
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            darkModeEditor.putBoolean(getString(R.string.darkMode_sharedPreferences_name), false)
+            darkModeEditor.apply()
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
+        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        supportActionBar?.title = "COMP4521 Quiz App"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //add life cycle observer of the app
+        ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+    }
+
+    //when the app goes to background, stop the background music if needed
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onStopMusic() {
+        var bgmSetting = settingSharedPref.getBoolean(getString(R.string.BGM_sharedPreferences_name), true)
+        if(bgmSetting) {
+            stopService(Intent(this, BackgroundMusicService::class.java))
+        }
+    }
+
+    //when the app back to foreground, restart the background music if needed
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResumeMusic() {
+        var bgmSetting = settingSharedPref.getBoolean(getString(R.string.BGM_sharedPreferences_name), true)
+        var bgmRunning = serviceRunning(BackgroundMusicService::class.java)
+        Log.d("", "bgmrunning: $bgmRunning")
+        if(bgmSetting && !bgmRunning) {
+            startService(Intent(this, BackgroundMusicService::class.java))
+        }
+    }
+
+    //stop the background music if needed
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun onDestroyMusic() {
+        var bgmSetting = settingSharedPref.getBoolean(getString(R.string.BGM_sharedPreferences_name), true)
+        if(bgmSetting) {
+            stopService(Intent(this, BackgroundMusicService::class.java))
+        }
+    }
+
+    //check if the background music service is running
+    private fun serviceRunning(serviceClass: Class<BackgroundMusicService>): Boolean {
+        var manager: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager;
+        val services = manager.getRunningServices(Integer.MAX_VALUE)
+        for (service in services) {
+            if (serviceClass.name.equals(service.service.className)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+//    Read Me by Roy
+
+//    Account Information:
+//      User id (document id, unique, auto-generated by firebase)
+//      Email (unique)
+//      User Name (unique)
+//      Password
+//      Profile picture (a default profile pic will be assigned when register)
+
+//    Get account information:
+//      val sharedPref = activity?.getSharedPreferences(getString(R.string.General), Context.MODE_PRIVATE)
+//      val userId = sharedPref?.getString(getString(com.example.comp4521_quiz_app.R.string.user_id), "Error")!!
+//      val email = sharedPref?.getString(getString(com.example.comp4521_quiz_app.R.string.email), "Error")!!
+//      val userName = sharedPref?.getString(getString(com.example.comp4521_quiz_app.R.string.user_name), "Error")!!
+//      val password = sharedPref?.getString(getString(com.example.comp4521_quiz_app.R.string.password), "Error")!!
+
+//    Profile picture
+//      Naming = (user id).bmp
+//      Local: store under app internal storage -> getFileDir()
+//      Cloud: store in firebase storage
+
+//    Get profile picture:
+//        Check MainActivityViewModel.loadProfilePicFromInternalStorage
+
+//    Firebase
+//      Firestore Database:
+//          User id as document id
+//          Store email, user name, password
+//      Storage:
+//          Store profile picture under "profile pictures"
+
+
+
+
+
+}

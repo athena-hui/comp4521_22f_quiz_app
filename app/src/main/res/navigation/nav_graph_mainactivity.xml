@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/placeholderFragment">
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.MainPageFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/regORLogFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/regORLogFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.RegORLogFragment"
+        android:label="fragment_reg_o_r_log"
+        tools:layout="@layout/fragment_reg_or_log" >
+        <action
+            android:id="@+id/action_regORLogFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_regORLogFragment_to_onlineLoginFragment"
+            app:destination="@id/onlineLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeholderFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.PlaceholderFragment"
+        android:label="fragment_placeholder"
+        tools:layout="@layout/fragment_placeholder" >
+        <action
+            android:id="@+id/action_placeholderFragment_to_regORLogFragment"
+            app:destination="@id/regORLogFragment"
+            app:popUpTo="@id/placeholderFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_placeholderFragment_to_offlineLoginFragment"
+            app:destination="@id/offlineLoginFragment"
+            app:popUpTo="@id/placeholderFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/onlineLoginFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.OnlineLoginFragment"
+        android:label="fragment_online_login_in"
+        tools:layout="@layout/fragment_online_login" >
+        <action
+            android:id="@+id/action_onlineLoginFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/regORLogFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_onlineLoginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offlineLoginFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.OfflineLoginFragment"
+        android:label="fragment_offline_login_in"
+        tools:layout="@layout/fragment_offline_login" >
+        <action
+            android:id="@+id/action_offlineLoginFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpTo="@id/offlineLoginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_offlineLoginFragment_to_regORLogFragment"
+            app:destination="@id/regORLogFragment"
+            app:popUpTo="@id/offlineLoginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_offlineLoginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" >
+        <argument
+            android:name="userNameProvided"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountInfoFragment"
+            app:destination="@id/editAccountInfoFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_accountFragment_to_regORLogFragment"
+            app:destination="@id/regORLogFragment"
+            app:popUpTo="@id/mainPageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAccountInfoFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.EditAccountInfoFragment"
+        android:label="fragment_edit_account_info"
+        tools:layout="@layout/fragment_edit_account_info" >
+        <action
+            android:id="@+id/action_editAccountInfoFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.comp4521_quiz_app.main_activity.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_accountFragment"
+            app:destination="@id/accountFragment"
+            app:popUpTo="@id/accountFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

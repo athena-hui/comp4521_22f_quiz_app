@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.comp4521_quiz_app.quiz_activity.StartQuizFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/startQuizConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/RulesTextView"
+            android:layout_width="0dp"
+            android:layout_height="316dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_vertical"
+            android:text="@string/rules_there_will_have_10_questions_in_this_quiz_and_each_question_has_30_seconds_time_limit_nscore_will_be_increased_if_you_answer_earlier_npress_next_to_sumbit_answers_and_skip_to_jump_to_next_question"
+            android:textColor="@color/temp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/startButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/TestingTextView"
+            android:layout_width="330dp"
+            android:layout_height="95dp"
+            android:gravity="center"
+            android:text="@string/the_quiz_category_you_chose_is"
+            android:textColor="#9C27B0"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/TypeTextview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RulesTextView" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/rules"
+            android:textColor="@color/temp"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/RulesTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TypeTextview" />
+
+        <TextView
+            android:id="@+id/TypeTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9C27B0"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TestingTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
